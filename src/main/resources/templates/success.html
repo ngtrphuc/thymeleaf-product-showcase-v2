@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt hàng thành công!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f6fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .success-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 10;
+            max-width: 400px;
+        }
+
+        .checkmark-circle {
+            width: 80px;
+            height: 80px;
+            background: #2ecc71;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 40px;
+            animation: scaleIn 0.5s ease;
+        }
+
+        h1 {
+            color: #2f3640;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .btn-home {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 12px 30px;
+            background: #00a8ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-home:hover {
+            background: #0097e6;
+            transform: scale(1.05);
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="success-card">
+        <div class="checkmark-circle">✓</div>
+        <h1>Thank You!</h1>
+        <p>Your order has been placed successfully. We will process it and contact you shortly.</p>
+        <a href="/" class="btn-home">Back to Shop</a>
+    </div>
+    <script>
+        // Hàm tạo hiệu ứng pháo hoa khi trang vừa load xong
+        window.onload = function () {
+            var duration = 3 * 1000; // Chạy trong 3 giây
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#2ecc71', '#00a8ff', '#f1c40f']
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#2ecc71', '#00a8ff', '#f1c40f']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        };
+    </script>
+    
+    <footer>
+        <div th:text="${shopname}" style="font-weight: bold;"></div>
+        <div class="footer-address" th:text="${address}"></div>
+    </footer>
+
+</body>
+
+</html>
