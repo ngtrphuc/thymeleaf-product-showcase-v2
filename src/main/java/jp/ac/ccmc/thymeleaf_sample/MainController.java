@@ -16,38 +16,37 @@ import jakarta.servlet.http.HttpSession;
 public class MainController {
 
     private final List<Map<String, String>> phones = List.of(
-            Map.ofEntries(
-                    Map.entry("id", "1"),
-                    Map.entry("name", "iPhone 16 Pro Max"),
-                    Map.entry("price", "249800"),
-                    Map.entry("image", "/images/iphone16.jpg"),
-                    Map.entry("os", "iOS 18"),
-                    Map.entry("ram", "8 GB"),
-                    Map.entry("cpu", "Apple A18 Pro"),
-                    Map.entry("speed", "4.05 GHz"),
-                    Map.entry("storage", "1 TB"),
-                    Map.entry("size", "6.9 inch"),
-                    Map.entry("resolution", "2868 x 1320"),
-                    Map.entry("battery", "4676 mAh"),
-                    Map.entry("charging", "30W"),
-                    Map.entry("description", "高級なチタン設計、改良されたカメラ、強力なA18 Proチップを搭載したiPhone 16 Pro Maxです。")
-            ),
-            Map.ofEntries(
-                    Map.entry("id", "2"),
-                    Map.entry("name", "Samsung Galaxy S25 Ultra"),
-                    Map.entry("price", "253800"),
-                    Map.entry("image", "/images/galaxy_s25.jpg"),
-                    Map.entry("os", "Android 15"),
-                    Map.entry("ram", "12 GB"),
-                    Map.entry("cpu", "Snapdragon 8 Elite for Galaxy"),
-                    Map.entry("speed", "4.47 GHz"),
-                    Map.entry("storage", "1 TB"),
-                    Map.entry("size", "6.9 inch"),
-                    Map.entry("resolution", "3120 x 1440"),
-                    Map.entry("battery", "5000 mAh"),
-                    Map.entry("charging", "45W"),
-                    Map.entry("description", "6.9インチのDynamic AMOLED 2XディスプレイとSペンを搭載したGalaxy S25 Ultraです。")
-            ), Map.ofEntries(
+        Map.ofEntries(
+            Map.entry("id", "1"),
+            Map.entry("name", "iPhone 16 Pro Max"),
+            Map.entry("price", "249800"),
+            Map.entry("image", "/images/iphone16.jpg"),
+            Map.entry("os", "iOS 18"),
+            Map.entry("ram", "8 GB"),
+            Map.entry("cpu", "Apple A18 Pro"),
+            Map.entry("speed", "4.05 GHz"),
+            Map.entry("storage", "1 TB"),
+            Map.entry("size", "6.9 inch"),
+            Map.entry("resolution", "2868 x 1320"),
+            Map.entry("battery", "4676 mAh"),
+            Map.entry("charging", "30W"),
+            Map.entry("description", "高級なチタン設計、改良されたカメラ、強力なA18 Proチップを搭載したiPhone 16 Pro Maxです。")
+    ),Map.ofEntries(
+            Map.entry("id", "2"),
+            Map.entry("name", "Samsung Galaxy S25 Ultra"),
+            Map.entry("price", "253800"),
+            Map.entry("image", "/images/galaxy_s25.jpg"),
+            Map.entry("os", "Android 15"),
+            Map.entry("ram", "12 GB"),
+            Map.entry("cpu", "Snapdragon 8 Elite for Galaxy"),
+            Map.entry("speed", "4.47 GHz"),
+            Map.entry("storage", "1 TB"),
+            Map.entry("size", "6.9 inch"),
+            Map.entry("resolution", "3120 x 1440"),
+            Map.entry("battery", "5000 mAh"),
+            Map.entry("charging", "45W"),
+            Map.entry("description", "6.9インチのDynamic AMOLED 2XディスプレイとSペンを搭載したGalaxy S25 Ultraです。")
+    ), Map.ofEntries(
             Map.entry("id", "3"),
             Map.entry("name", "Google Pixel 9 Pro XL"),
             Map.entry("price", "212900"),
