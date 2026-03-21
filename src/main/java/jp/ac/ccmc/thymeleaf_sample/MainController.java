@@ -136,7 +136,6 @@ public class MainController {
             Map.entry("battery", "7050 mAh"),
             Map.entry("charging", "80W"),
             Map.entry("description", "144Hzリフレッシュレートディスプレイと内蔵ファンを備えたRedMagic 10 Proです。"))
-    // ... các sản phẩm khác
     );
 
     public Optional<Map<String, String>> findById(String id) {
@@ -145,12 +144,11 @@ public class MainController {
                 .findFirst();
     }
 
-    // Trang chủ + search
     @GetMapping("/")
     public String showTopPage(@RequestParam(name = "keyword", required = false) String keyword,
             HttpSession session,
             Model model) {
-        // Đảm bảo cartCount luôn tồn tại trong Session để HTML không bị lỗi 500
+        
         if (session.getAttribute("cartCount") == null) {
             session.setAttribute("cartCount", 0);
         }
@@ -167,7 +165,6 @@ public class MainController {
         return "index";
     }
 
-    // Trang chi tiết
     @GetMapping("/product/{id}")
     public String showItemPage(@PathVariable("id") String id, Model model) {
 
