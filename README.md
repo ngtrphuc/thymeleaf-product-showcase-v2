@@ -64,6 +64,7 @@ Product Details: Click a product to see detailed specifications and add it to th
 Cart: Adjust quantity or remove items.
 Checkout: Review order and confirm purchase.
 Order Confirmation: Displays a success message with confetti animation.
+
 📌 Notes
 Cart Persistence: Cart data is stored in the user session and will reset if the session ends.
 Data Source: Product information is hardcoded in MainController.java. In a real application, connect to a database.
