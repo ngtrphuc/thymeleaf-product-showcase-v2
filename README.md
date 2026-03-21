@@ -58,7 +58,7 @@ mvn spring-boot:run
 
 The application will start at http://localhost:8080.
 
-3. Usage
+# 3. Usage
 Homepage: Browse all products and search using the search bar.
 Product Details: Click a product to see detailed specifications and add it to the cart.
 Cart: Adjust quantity or remove items.
