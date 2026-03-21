@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Smartphone Shop</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <h1 th:text="${shopname}"
+        style="text-align: center; background-color: black; color: white; padding: 10px; border-radius: 8px;">
+        Smartphone Shop </h1>
+    <div class="product-list">
+        <div th:each="phone : ${phones}" class="product"> <img th:src="@{${phone.image}}" width="200"
+                alt="Ảnh sản phẩm" />
+            <h3 th:text="${phone.name}">Tên sản phẩm</h3>
+            <p>価格: <span th:text="${phone.price} + '円'">0円</span></p>
+            <p th:text="${phone.description}">Mô tả sản phẩm</p> <a th:href="@{'/item/' + ${phone.id}}"
+                class="detail-button">詳細を見る</a>
+        </div>
+    </div>
+    <footer style="margin-top: 50px; padding: 10px; text-align: center; color: #666; border-top: 1px solid #ccc;">
+        <p>住所: <span th:text="${address}"></span> - 郵便番号: <span th:text="${postalCode}"></span></p>
+    </footer>
+</body>
+
+</html>
