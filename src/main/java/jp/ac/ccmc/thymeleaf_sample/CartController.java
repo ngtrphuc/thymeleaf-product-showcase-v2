@@ -34,7 +34,6 @@ public class CartController {
         return cart;
     }
 
-    // Hàm này giúp cập nhật số lượng badge (góc phải màn hình)
     private void syncCartCount(HttpSession session) {
         List<CartItem> cart = getCart(session);
         int totalQuantity = cart.stream().mapToInt(CartItem::getQuantity).sum();
@@ -119,7 +118,7 @@ public class CartController {
 
         model.addAttribute("total", total);
         model.addAttribute("count", count);
-        model.addAttribute("cart", cart); // Thêm dòng này
+        model.addAttribute("cart", cart); 
         return "checkout";
     }
 
