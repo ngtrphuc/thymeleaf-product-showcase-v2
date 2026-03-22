@@ -1,157 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <title>Smartphone Shop</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #f5f6fa;
-            margin: 0;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #000000;
-            padding: 15px 30px;
-            color: white;
-        }
-
-        .logo {
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .cart {
-            background: #000;
-            color: #fff !important;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            text-decoration: none;
-            border: 1.5px solid #ffffff;
-            transition: 0.3s;
-            font-size: 14px;
-        }
-
-        .cart:hover {
-            background: #ffffff !important;
-            color: #000000 !important;
-        }
-
-        .shop-title-container {
-            background: white;
-            text-align: center;
-            padding: 30px 20px 10px 20px;
-        }
-
-        .shop-name {
-            font-size: 32px;
-            font-weight: 800;
-            color: #000000;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .search-container {
-            text-align: center;
-            padding: 20px 20px 40px 20px;
-            background: white;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        input[type="text"] {
-            padding: 12px;
-            width: 300px;
-            border-radius: 6px 0 0 6px;
-            border: 1px solid #ccc;
-            outline: none;
-        }
-
-        .btn-search {
-            padding: 12px 25px;
-            border: none;
-            background: #000000;
-            color: white;
-            border-radius: 0 6px 6px 0;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 20px 5%;
-        }
-
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: 0.3s;
-            text-align: center;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .price {
-            color: #e84118;
-            font-size: 20px;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        footer {
-            background: #000000;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
-
-        .footer-address {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-
 <body>
     <div class="header">
         <a href="/" class="logo">🏠︎ HOME</a>
         <a href="/cart" class="cart">🛒 Cart (<span th:text="${session.cartCount != null ? session.cartCount : 0}">0</span>)</a>
     </div>
-
     <div class="shop-title-container">
         <h1 class="shop-name" th:text="${shopname}">SHOP NAME</h1>
     </div>
-
     <div class="search-container">
         <form method="get" action="/">
             <input type="text" name="keyword" placeholder="Search smartphones..." th:value="${keyword}">
             <button type="submit" class="btn-search">Search</button>
         </form>
     </div>
-
     <div class="container">
         <div class="card" th:each="p : ${phones}">
             <a th:href="@{'/product/' + ${p.id}}" style="text-decoration: none; color: #000;">
@@ -162,11 +29,9 @@
             </a>
         </div>
     </div>
-
     <footer>
         <div class="footer-address" th:text="${address}"></div>
         <div style="margin-top: 10px; font-size: 11px; opacity: 0.4;">© 2026 Smartphone Shop</div>
     </footer>
 </body>
-
 </html>

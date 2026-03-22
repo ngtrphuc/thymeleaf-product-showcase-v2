@@ -2,66 +2,46 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Product Detail</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f5f6fa; margin: 0; }
-        .header { display: flex; justify-content: space-between; align-items: center; background: #000000; padding: 15px 30px; color: white; }
-        .logo, .cart { color: white; font-weight: bold; text-decoration: none; }
-        .cart { background: #000; padding: 8px 18px; border-radius: 25px; border: 1.5px solid #fff; }
-
-        .container { max-width: 1000px; margin: 40px auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); display: flex; gap: 40px; flex-wrap: wrap; }
-        .product-img { flex: 1; min-width: 350px; }
-        .product-img img { width: 100%; border-radius: 15px; position: sticky; top: 20px; }
-        .product-info { flex: 1.2; min-width: 350px; }
-        
-        .price { color: #e84118; font-size: 32px; font-weight: bold; margin: 15px 0; }
-        .spec-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 15px; }
-        .spec-table tr { border-bottom: 1px solid #eee; }
-        .spec-table td { padding: 12px 5px; }
-        .spec-label { font-weight: bold; color: #7f8c8d; width: 140px; }
-        .spec-value { color: #2f3640; font-weight: 500; }
-
-        .btn { padding: 15px 25px; border-radius: 8px; border: none; cursor: pointer; font-weight: bold; transition: 0.3s; text-decoration: none; display: inline-block; text-align: center; }
-        .btn-cart { background: #e84118; color: white; width: 100%; font-size: 18px; }
-        .btn-cart:hover { background: #c0392b; }
-        .btn-back { background: #000000; color: white; margin-top: 15px; width: 100%; box-sizing: border-box; }
-
-        footer { background: #000000; color: white; text-align: center; padding: 40px; margin-top: 50px; }
-    </style>
+    <title>Smartphone Shop - Product Details</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
     <div class="header">
         <a href="/" class="logo">🏠︎ HOME</a>
-        <a href="/cart" class="cart">🛒 Cart (<span th:text="${session.cartCount}">0</span>)</a>
+        <a href="/cart" class="cart">🛒 Cart (<span th:text="${session.cartCount != null ? session.cartCount : 0}">0</span>)</a>
     </div>
 
-    <div class="container">
-        <div class="product-img">
-            <img th:src="@{${product.image}}" alt="Product">
+    <div class="container" style="display: flex; gap: 40px; align-items: flex-start;">
+        
+        <div class="product-img" style="flex: 1;">
+            <img th:src="@{${product.image}}" alt="Product" style="width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
         </div>
-        <div class="product-info">
-            <h1 th:text="${product.name}" style="margin: 0;"></h1>
-            <p class="price" th:text="${product.price} + ' JPY'"></p>
-            <p th:text="${product.description}" style="line-height: 1.6; color: #555; margin-bottom: 20px;"></p>
-            
-            <h3 style="border-left: 4px solid #000; padding-left: 10px;">Product specifications</h3>
+
+        <div class="product-info" style="flex: 1.2;">
+            <h1 th:text="${product.name}" style="margin: 0; font-size: 2.2rem;"></h1>
+            <p class="price" th:text="${product.price} + ' JPY'" style="font-size: 1.6rem; margin: 15px 0;"></p>
+            <p th:text="${product.description}" style="line-height: 1.6; color: #555; margin-bottom: 25px;"></p>
+
+            <h3 style="border-left: 4px solid #000; padding-left: 10px; margin-bottom: 15px;">Product specifications</h3>
             <table class="spec-table">
                 <tr><td class="spec-label">OS</td><td class="spec-value" th:text="${product.os}"></td></tr>
                 <tr><td class="spec-label">CPU</td><td class="spec-value" th:text="${product.cpu}"></td></tr>
-                <tr><td class="spec-label">Speed</td><td class="spec-value" th:text="${product.speed}"></td></tr>
+                <tr><td class="spec-label">Frequency</td><td class="spec-value" th:text="${product.speed}"></td></tr>
                 <tr><td class="spec-label">RAM</td><td class="spec-value" th:text="${product.ram}"></td></tr>
                 <tr><td class="spec-label">Storage</td><td class="spec-value" th:text="${product.storage}"></td></tr>
                 <tr><td class="spec-label">Display Size</td><td class="spec-value" th:text="${product.size}"></td></tr>
                 <tr><td class="spec-label">Resolution</td><td class="spec-value" th:text="${product.resolution}"></td></tr>
                 <tr><td class="spec-label">Battery</td><td class="spec-value" th:text="${product.battery}"></td></tr>
-                <tr><td class="spec-label">Charging</td><td class="spec-value" th:text="${product.charging}"></td></tr>
+                <tr><td class="spec-label">Charging Power</td><td class="spec-value" th:text="${product.charging}"></td></tr>
             </table>
 
-            <form action="/cart/add" method="get">
-                <input type="hidden" name="id" th:value="${product.id}">
-                <button type="submit" class="btn btn-cart">Add to Cart</button>
-            </form>
-            <a href="/" class="btn btn-back">Back</a>
+            <div class="action-buttons">
+                <form action="/cart/add" method="get" style="margin: 0;">
+                    <input type="hidden" name="id" th:value="${product.id}">
+                    <button type="submit" class="btn-cart">Add to Cart</button>
+                </form>
+                <a href="/" class="btn-back">Back</a>
+            </div>
         </div>
     </div>
 
