@@ -65,3 +65,9 @@ The application will start at http://localhost:8080.
 
 # 3. Usage
 Homepage: Browse all products and search using the search bar.
+
+## 🎯 Purpose
+
+This project was created to practice full-stack web development using Spring Boot and to simulate a real-world e-commerce workflow.
+
+
