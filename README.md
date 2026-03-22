@@ -30,7 +30,6 @@ This is a **Spring Boot** web application that **simulates** a real-world e-comm
 
 ## 📁 Project Structure
 
-
 src/
 ├─ main/
 │  ├─ java/jp/ac/ccmc/thymeleaf_sample/
