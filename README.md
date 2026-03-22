@@ -70,3 +70,22 @@ Homepage: Browse all products and search using the search bar.
 
 This project was created to practice full-stack web development using Spring Boot and to simulate a real-world e-commerce workflow.
 
+## 📸 Screenshots
+
+### 🏠︎ Home Page
+![Home](Homepage.png)
+
+### 📱 Product Detail
+![Detail](Productdetail.png)
+
+### 🛒 Cart
+![Cart](Cart.png)
+
+### ✅ Checkout
+![Checkout](Checkout.png)
+
+
+
+
+
+
