@@ -1,27 +1,30 @@
-# Smartphone Shop - Thymeleaf Sample
+# 📱 Smartphone Shop Simulation - Thymeleaf Showcase
 
-This is a **Spring Boot** web application built with **Thymeleaf** that demonstrates a simple e-commerce shopping cart system. Users can browse smartphones, view product details, manage their cart, and complete a checkout process.
-
----
-
-## 📦 Features
-
-- **Homepage & Search**: Browse all products and search by name.
-- **Product Detail Page**: View product specifications including OS, CPU, RAM, Storage, Display, Resolution, Battery, and Charging.
-- **Shopping Cart**: Add products to cart, increase/decrease quantity, remove items.
-- **Checkout**: View order summary with total price and item count.
-- **Order Confirmation**: Confirm order and see a success page with confetti animation.
-- **Session-based Cart**: Cart is maintained using HttpSession with live cart count in the header.
+This is a **Spring Boot** web application that **simulates** a real-world e-commerce shopping experience. It focuses on demonstrating full-stack development skills, specifically handling complex UI states and session management.
 
 ---
 
-## 🛠 Technologies Used
+## 📦 Key Features
 
-- **Backend**: Java, Spring Boot, Spring MVC
-- **Frontend**: Thymeleaf, HTML, CSS
-- **Session Management**: HttpSession
-- **Build Tool**: Maven
-- **Java Version**: 17+ recommended
+- **Dynamic Simulation**: Simulates a complete customer journey from browsing to a "Confetti" success page.
+- **Product Discovery**: Search functionality and detailed specification views.
+- **Advanced Cart Logic**: Real-time quantity updates and total price calculations within `HttpSession`.
+- **Two-Step Checkout**: Newly added shipping information stage before final order confirmation.
+- **Responsive UI**: A sleek, dark-themed modern interface built from scratch with CSS.
+
+---
+
+## 🛠 Technical Stack & Highlights
+
+- **Backend**: Java 17, Spring Boot 3, Spring MVC.
+- **Frontend**: 
+  - **Thymeleaf**: Dynamic rendering of product catalogs, shopping carts, and order summaries.
+  - **Modern CSS**: Fully custom, responsive layouts with a focus on clean typography.
+  - **Interactive JS**: Integrated `canvas-confetti` library for a rewarding post-purchase experience.
+- **Key Implementation Details**:
+  - **Multi-step Checkout Flow**: Simulated a realistic 2-step process (Shipping Info -> Order Review -> Success).
+  - **Dynamic Search**: Real-time filtering of product lists via request parameters.
+  - **Session Persistence**: Cart and user data managed seamlessly across pages using `HttpSession`.
 
 ---
 
@@ -29,22 +32,25 @@ This is a **Spring Boot** web application built with **Thymeleaf** that demonstr
 
 src/
 ├─ main/
-│ ├─ java/jp/ac/ccmc/thymeleaf_sample/
-│ │ ├─ ThymeleafSampleApplication.java # Main Spring Boot application
-│ │ ├─ MainController.java # Handles homepage, search, product details
-│ │ ├─ CartController.java # Handles cart operations and checkout
-│ │ └─ CartItem.java # Cart item model
-│ └─ resources/
-│ ├─ templates/
-│ │ ├─ index.html # Homepage
-│ │ ├─ detail.html # Product detail page
-│ │ ├─ cart.html # Shopping cart page
-│ │ ├─ checkout.html # Checkout page
-│ │ └─ success.html # Order confirmation page
-│ └─ application.properties # Spring Boot configuration
-
-
----
+│  ├─ java/jp/ac/ccmc/thymeleaf_sample/
+│  │  ├─ ThymeleafSampleApplication.java # Spring Boot entry point
+│  │  ├─ MainController.java             # Catalog, Search & Product details logic
+│  │  ├─ CartController.java             # Cart management & Checkout flow logic
+│  │  └─ CartItem.java                   # Data model for shopping cart items
+│  └─ resources/
+│     ├─ static/
+│     │  ├─ css/
+│     │  │  └─ style.css                 # Global custom styles (Flexbox/Grid)
+│     │  └─ images/                      # Smartphone product images (jpg/png)
+│     ├─ templates/
+│     │  ├─ index.html                   # Shop home & Search results
+│     │  ├─ detail.html                  # Product specifications & "Add to cart"
+│     │  ├─ cart.html                    # Cart overview (Update/Remove items)
+│     │  ├─ shipping.html                # Step 1: Customer info collection form
+│     │  ├─ checkout.html                # Step 2: Final order review & summary
+│     │  └─ success.html                 # Completion page with Confetti animation
+│     └─ application.properties          # Server & Spring configurations
+└─ pom.xml                               # Project dependencies (Spring Boot, Thymeleaf)
 
 ## 🚀 Getting Started
 
@@ -55,17 +61,7 @@ cd thymeleaf-product-showcase-v2
 # 2. Build and run the application using Maven
 mvn clean install
 mvn spring-boot:run
-
 The application will start at http://localhost:8080.
 
 # 3. Usage
 Homepage: Browse all products and search using the search bar.
-Product Details: Click a product to see detailed specifications and add it to the cart.
-Cart: Adjust quantity or remove items.
-Checkout: Review order and confirm purchase.
-Order Confirmation: Displays a success message with confetti animation.
-
-📌 Notes
-Cart Persistence: Cart data is stored in the user session and will reset if the session ends.
-Data Source: Product information is hardcoded in MainController.java. In a real application, connect to a database.
-UI Design: Responsive layout using CSS. Minimal JavaScript for animations.
