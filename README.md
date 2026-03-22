@@ -30,27 +30,28 @@ This is a **Spring Boot** web application that **simulates** a real-world e-comm
 
 ## 📁 Project Structure
 
+
 src/
 ├─ main/
 │  ├─ java/jp/ac/ccmc/thymeleaf_sample/
-│  │  ├─ ThymeleafSampleApplication.java 
-│  │  ├─ MainController.java             
-│  │  ├─ CartController.java             
-│  │  └─ CartItem.java                   
+│  │  ├─ ThymeleafSampleApplication.java # Spring Boot entry point
+│  │  ├─ MainController.java             # Catalog, Search & Product details logic
+│  │  ├─ CartController.java             # Cart management & Checkout flow logic
+│  │  └─ CartItem.java                   # Data model for shopping cart items
 │  └─ resources/
 │     ├─ static/
 │     │  ├─ css/
-│     │  │  └─ style.css                 
-│     │  └─ images/                      
+│     │  │  └─ style.css                 # Global custom styles (Flexbox/Grid)
+│     │  └─ images/                      # Smartphone product images (jpg/png)
 │     ├─ templates/
-│     │  ├─ index.html                   
-│     │  ├─ detail.html                  
-│     │  ├─ cart.html                    
-│     │  ├─ shipping.html                
-│     │  ├─ checkout.html                
-│     │  └─ success.html                 
-│     └─ application.properties          
-└─ pom.xml                               
+│     │  ├─ index.html                   # Shop home & Search results
+│     │  ├─ detail.html                  # Product specifications & "Add to cart"
+│     │  ├─ cart.html                    # Cart overview (Update/Remove items)
+│     │  ├─ shipping.html                # Step 1: Customer info collection form
+│     │  ├─ checkout.html                # Step 2: Final order review & summary
+│     │  └─ success.html                 # Completion page with Confetti animation
+│     └─ application.properties          # Server & Spring configurations
+└─ pom.xml                               # Project dependencies (Spring Boot, Thymeleaf)                     
 
 ## 🚀 Getting Started
 
