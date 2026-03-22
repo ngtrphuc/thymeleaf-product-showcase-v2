@@ -29,7 +29,7 @@ This is a **Spring Boot** web application that **simulates** a real-world e-comm
 ---
 
 ## 📁 Project Structure
-
+```
 src/
 ├─ main/
 │  ├─ java/jp/ac/ccmc/thymeleaf_sample/
@@ -51,7 +51,7 @@ src/
 │     │  └─ success.html                 # Completion page with Confetti animation
 │     └─ application.properties          # Server & Spring configurations
 └─ pom.xml                               # Project dependencies (Spring Boot, Thymeleaf)                     
-
+```
 ## 🚀 Getting Started
 
 # 1. Clone the repository
