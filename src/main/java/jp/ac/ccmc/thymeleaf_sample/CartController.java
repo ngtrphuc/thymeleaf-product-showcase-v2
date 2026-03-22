@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -118,8 +119,31 @@ public class CartController {
 
         model.addAttribute("total", total);
         model.addAttribute("count", count);
-        model.addAttribute("cart", cart); 
+        model.addAttribute("cart", cart);
         return "checkout";
+    }
+
+    @GetMapping("/shipping")
+    public String showShippingForm(HttpSession session, Model model) {
+        List<CartItem> cart = getCart(session);
+        if (cart.isEmpty()) {
+            return "redirect:/cart";
+        }
+        return "shipping";
+    }
+
+    @PostMapping("/process-shipping")
+    public String processShipping(
+            @RequestParam("customerName") String name,
+            @RequestParam("phoneNumber") String phone,
+            @RequestParam("address") String address,
+            HttpSession session) {
+
+        session.setAttribute("customerName", name);
+        session.setAttribute("customerPhone", phone);
+        session.setAttribute("customerAddress", address);
+
+        return "redirect:/cart/checkout";
     }
 
     @GetMapping("/confirm")
