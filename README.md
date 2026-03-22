@@ -70,4 +70,3 @@ Homepage: Browse all products and search using the search bar.
 
 This project was created to practice full-stack web development using Spring Boot and to simulate a real-world e-commerce workflow.
 
-
